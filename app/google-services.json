@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "716038672724",
+    "project_id": "employee-connect-bce80",
+    "storage_bucket": "employee-connect-bce80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716038672724:android:3c6864f6c233197a5bf8c1",
+        "android_client_info": {
+          "package_name": "com.anshul.employeeconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa8wpEHI_pyFueJzJrG9rUNfGWTtb_aBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

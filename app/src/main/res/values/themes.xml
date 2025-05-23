@@ -1,8 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.EmployeeConnect" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.EmployeeConnect" parent="Theme.MaterialComponents.Light">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        @link android.view.View#SYSTEM_UI_FLAG_LAYOUT_STABLE
+        @link android.R.attr#windowTranslucentNavigation
+        @link android. view. View#SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        <item name="android:statusBarColor">@color/bgDark</item>
+        <item name="android:navigationBarColor">@color/bgDark</item>
+        <item name="android:windowBackground">@color/bg1</item>
+
+        <item name="colorPrimary">@color/light_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/bgLight</item>
+        <item name="colorOnSecondary">@color/black</item>
+<!--        <item name="android:background">@color/bg1</item>-->
+
+
+
     </style>
 
     <style name="Theme.EmployeeConnect" parent="Base.Theme.EmployeeConnect" />

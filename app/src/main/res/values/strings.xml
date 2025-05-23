@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Employee Connect</string>
+    <string name="sign_in_to_continue">Sign-in to continue</string>
+    <string name="Enter_name">Enter your name</string>
+    <string name="Enter_phone">Enter your phone number</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="remember">Remember me</string>
+    <string name="Enter_otp">Enter OTP</string>
+    <string name="otp">OTP</string>
+    <string name="proceed">Proceed</string>
+    <string name="welcome">Welcome</string>
+    <string name="create_team">Create a team</string>
+    <string name="join_team">Join a team</string>
+    <string name="enter_email">Enter email address</string>
+    <string name="enter_password">Enter password</string>
+    <string name="min_length6">Minimum 6 characters</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="web_client_id">716038672724-a6j4lj0q7i2ehh0j06evg2cr7q8oisgj.apps.googleusercontent.com</string>
+
 </resources>
