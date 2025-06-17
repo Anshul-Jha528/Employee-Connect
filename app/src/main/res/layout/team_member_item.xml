@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/email">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="name"
+            android:textColor="@color/purple"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="183dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="email"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/assignTask"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="196dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/google_button"
+            android:backgroundTint="@color/orange"
+            android:text="Assign Task"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/info"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_normal"
+            android:text="View Info"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="right"
+            android:maxLines="1"
+            android:text="ADMIN"
+            android:textColor="@color/light_green"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

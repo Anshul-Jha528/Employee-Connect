@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="400dp"
+    android:minHeight="400dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".FragmentTaskInformation">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Information"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/darkRed"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"/>
+
+        <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:layout_margin="20dp"
+        android:paddingTop="5dp"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task Status"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"/>
+
+        <ToggleButton
+            android:id="@+id/statusToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textOn="Completed"
+            android:textOff="Pending"
+            android:backgroundTint="@color/white"/>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+
+
+
+</LinearLayout>

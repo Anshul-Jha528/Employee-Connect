@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg1"
+    tools:context=".AddTaskActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fill details of task below : "
+        android:textSize="22sp"
+        android:textColor="@color/light_green"
+        android:layout_margin="15dp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Task name "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/taskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/input"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Location "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/taskLocation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/input"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Description / other details "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/taskDesc"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/input"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Start time "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/selectStartTime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="-SELECT-"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/button_normal"
+            android:backgroundTint="@color/white"
+            android:gravity="center"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="End time (Opt.) "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/selectEndTime"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="-SELECT-"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:background="@drawable/button_normal"
+            android:backgroundTint="@color/white"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9376656451768331/9746271693"/>
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/blue"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assign"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"/>
+
+
+</LinearLayout>

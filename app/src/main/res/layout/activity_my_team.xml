@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyTeamActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/background_team">
+
+    <TextView
+        android:id="@+id/teamName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Team"
+        android:textSize="24sp"
+        android:textColor="@color/light_blue"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+        <TextView
+        android:id="@+id/teamCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Team"
+        android:textSize="24sp"
+        android:textColor="@color/purple"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/teamDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Team"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/requestTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pending Requests"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_margin="15dp"
+        android:gravity="left"
+        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/requestRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/request_member_item"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/membersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Members"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_margin="15dp"
+            android:gravity="left"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGroupCall"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/message_icon"
+            android:layout_marginRight="0dp"
+            android:layout_gravity="center_vertical|right"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/memberRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:listitem="@layout/team_member_item"/>
+
+
+
+
+
+
+</LinearLayout>

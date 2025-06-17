@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navHome"
+        android:icon="@mipmap/ic_home_foreground"
+        android:title="@string/home"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/navTask"
+        android:icon="@drawable/ic_calendar"
+        android:title="@string/tasks"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/navProfile"
+        android:icon="@drawable/profile_icon"
+        android:title="@string/profile"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+</menu>

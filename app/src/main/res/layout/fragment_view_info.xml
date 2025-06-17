@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".FragmentViewInfo"
+    android:minWidth="400dp"
+    android:backgroundTint="@color/white"
+    android:background="@drawable/google_button">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Information"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/darkRed"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"/>
+
+    <ImageView
+        android:id="@+id/call"
+        android:layout_width="50dp"
+        android:layout_height="50sp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/baseline_call_24"/>
+
+    <TextView
+        android:id="@+id/textInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:layout_margin="20dp"
+        android:paddingTop="5dp"
+        android:fontFamily="sans-serif-smallcaps"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnShowTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Tasks"
+        android:textColor="@color/black"
+        android:background="@color/whiteVariant"
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+
+</LinearLayout>

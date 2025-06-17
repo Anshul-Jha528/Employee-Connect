@@ -17,6 +17,12 @@
     <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
     <string name="continue_with_google">Continue with Google</string>
+    <string name="home">Home</string>
+    <string name="profile">My Profile</string>
+    <string name="tasks">My Tasks</string>
+    <string name="input">Write here</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

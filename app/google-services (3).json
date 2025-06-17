@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "716038672724",
+    "firebase_url": "https://employee-connect-bce80-default-rtdb.firebaseio.com",
+    "project_id": "employee-connect-bce80",
+    "storage_bucket": "employee-connect-bce80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716038672724:android:3c6864f6c233197a5bf8c1",
+        "android_client_info": {
+          "package_name": "com.anshul.employeeconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716038672724-fc6hkbfi45lske373tuiv6nblct77ee4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anshul.employeeconnect",
+            "certificate_hash": "f0b527b10ead2f3e2669221cba88d91b48de26e1"
+          }
+        },
+        {
+          "client_id": "716038672724-a6j4lj0q7i2ehh0j06evg2cr7q8oisgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa8wpEHI_pyFueJzJrG9rUNfGWTtb_aBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716038672724-a6j4lj0q7i2ehh0j06evg2cr7q8oisgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

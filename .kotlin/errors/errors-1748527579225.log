@@ -1,0 +1,225 @@
+kotlin version: 2.1.0
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: C:/Users/anshu/AndroidStudioProjects/EmployeeConnect/app/src/main/java/com/anshul/employeeconnect/AddTaskActivity.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:48)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:55)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:42)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:28)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:27)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:14)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:192)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.runBackend(jvmCompilerPipeline.kt:80)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineLightTreeKt.compileModule(jvmCompilerPipelineLightTree.kt:264)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineLightTreeKt.compileSingleModuleUsingFrontendIrAndLightTree(jvmCompilerPipelineLightTree.kt:231)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineLightTreeKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipelineLightTree.kt:86)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:146)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:43)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:102)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.exec(CLICompiler.kt:316)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:464)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:73)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:674)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:91)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1659)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN name:checkNotOverlap visibility:public modality:FINAL <> ($this:com.anshul.employeeconnect.AddTaskActivity) returnType:kotlin.Boolean
+  $this: VALUE_PARAMETER name:<this> type:com.anshul.employeeconnect.AddTaskActivity
+  BLOCK_BODY
+    VAR name:timeS type:android.icu.util.Calendar [val]
+      CALL 'public final fun firebaseTimestampToCalendar (timestamp: com.google.firebase.Timestamp): android.icu.util.Calendar declared in com.anshul.employeeconnect.AddTaskActivity' type=android.icu.util.Calendar origin=null
+        $this: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+        timestamp: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:startTime type:com.google.firebase.Timestamp visibility:private' type=com.google.firebase.Timestamp origin=null
+          receiver: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+    VAR name:timeE type:android.icu.util.Calendar? [val]
+      BLOCK type=android.icu.util.Calendar? origin=FOLDED_SAFE_CALL
+        WHEN type=android.icu.util.Calendar? origin=FOLDED_SAFE_CALL
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0_safe_receiver type:com.google.firebase.Timestamp? [val]
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:endTime type:com.google.firebase.Timestamp? visibility:private' type=com.google.firebase.Timestamp? origin=null
+                  receiver: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0_safe_receiver: com.google.firebase.Timestamp? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.google.firebase.Timestamp? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: CALL 'public final fun let <T, R> (block: kotlin.Function1<T of kotlin.StandardKt.let, R of kotlin.StandardKt.let>): R of kotlin.StandardKt.let [inline] declared in kotlin.StandardKt' type=android.icu.util.Calendar origin=null
+              <T>: com.google.firebase.Timestamp
+              <R>: android.icu.util.Calendar
+              $receiver: GET_VAR 'val tmp0_safe_receiver: com.google.firebase.Timestamp? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.google.firebase.Timestamp? origin=null
+              block: BLOCK type=kotlin.Function1<com.google.firebase.Timestamp, android.icu.util.Calendar> origin=LAMBDA
+                COMPOSITE type=kotlin.Unit origin=null
+                FUNCTION_REFERENCE 'private final fun checkNotOverlap$lambda$12 (this$0: com.anshul.employeeconnect.AddTaskActivity, it: com.google.firebase.Timestamp): android.icu.util.Calendar declared in com.anshul.employeeconnect.AddTaskActivity' type=kotlin.Function1<com.google.firebase.Timestamp, android.icu.util.Calendar> origin=INLINE_LAMBDA reflectionTarget=null
+                  this$0: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: CONST Null type=kotlin.Nothing? value=null
+    WHEN type=kotlin.Unit origin=IF
+      BRANCH
+        if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+          arg0: GET_VAR 'val timeE: android.icu.util.Calendar? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=android.icu.util.Calendar? origin=null
+          arg1: CONST Null type=kotlin.Nothing? value=null
+        then: BLOCK type=kotlin.Unit origin=null
+          WHEN type=kotlin.Unit origin=IF
+            BRANCH
+              if: CALL 'public open fun before (p0: @[FlexibleNullability] kotlin.Any?): kotlin.Boolean [fake_override] declared in kotlin.Nothing' type=kotlin.Boolean origin=null
+                $this: BLOCK type=kotlin.Nothing origin=null
+                  CALL 'public final fun CHECK_NOT_NULL <T0> (arg0: T0 of kotlin.internal.ir.CHECK_NOT_NULL?): {T0 of kotlin.internal.ir.CHECK_NOT_NULL & Any} declared in kotlin.internal.ir' type=kotlin.Nothing origin=EXCLEXCL
+                    <T0>: kotlin.Nothing
+                    arg0: GET_VAR 'val timeE: android.icu.util.Calendar? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=android.icu.util.Calendar? origin=null
+                  CALL 'public final fun throwKotlinNothingValueException (): kotlin.Nothing declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Nothing origin=null
+                p0: GET_VAR 'val timeS: android.icu.util.Calendar [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=android.icu.util.Calendar origin=null
+              then: BLOCK type=kotlin.Unit origin=null
+                CALL 'public open fun show (): kotlin.Unit declared in android.widget.Toast' type=kotlin.Unit origin=null
+                  $this: CALL 'public open fun makeText (p0: @[FlexibleNullability] android.content.Context?, p1: @[FlexibleNullability] kotlin.CharSequence?, p2: kotlin.Int): @[FlexibleNullability] android.widget.Toast? declared in android.widget.Toast' type=@[FlexibleNullability] android.widget.Toast? origin=null
+                    p0: CALL 'public open fun getApplicationContext (): @[FlexibleNullability] android.content.Context? [fake_override] declared in com.anshul.employeeconnect.AddTaskActivity' type=@[FlexibleNullability] android.content.Context? origin=GET_PROPERTY
+                      $this: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+                    p1: CONST String type=kotlin.String value="End time cannot be before start time"
+                    p2: CONST Int type=kotlin.Int value=0
+                RETURN type=kotlin.Nothing from='public final fun checkNotOverlap (): kotlin.Boolean declared in com.anshul.employeeconnect.AddTaskActivity'
+                  CONST Boolean type=kotlin.Boolean value=false
+    VAR name:database type:com.google.firebase.database.FirebaseDatabase [val]
+      CALL 'public final fun <get-database> (): com.google.firebase.database.FirebaseDatabase declared in com.google.firebase.database.DatabaseKt' type=com.google.firebase.database.FirebaseDatabase origin=GET_PROPERTY
+        $receiver: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:com.google.firebase.Firebase visibility:public [final,static] declared in com.google.firebase.Firebase' type=com.google.firebase.Firebase origin=null
+    VAR name:myRef type:com.google.firebase.database.DatabaseReference [val]
+      BLOCK type=com.google.firebase.database.DatabaseReference origin=null
+        VAR IR_TEMPORARY_VARIABLE name:tmp0 type:kotlin.Any? [val]
+          CALL 'public open fun child (p0: @[EnhancedNullability] kotlin.String): @[EnhancedNullability] com.google.firebase.database.DatabaseReference declared in com.google.firebase.database.DatabaseReference' type=@[EnhancedNullability] com.google.firebase.database.DatabaseReference origin=null
+            $this: CALL 'public open fun child (p0: @[EnhancedNullability] kotlin.String): @[EnhancedNullability] com.google.firebase.database.DatabaseReference declared in com.google.firebase.database.DatabaseReference' type=@[EnhancedNullability] com.google.firebase.database.DatabaseReference origin=null
+              $this: CALL 'public open fun getReference (p0: @[EnhancedNullability] kotlin.String): @[EnhancedNullability] com.google.firebase.database.DatabaseReference declared in com.google.firebase.database.FirebaseDatabase' type=@[EnhancedNullability] com.google.firebase.database.DatabaseReference origin=null
+                $this: GET_VAR 'val database: com.google.firebase.database.FirebaseDatabase [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.google.firebase.database.FirebaseDatabase origin=null
+                p0: CONST String type=kotlin.String value="users"
+              p0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:uid type:kotlin.String visibility:private' type=kotlin.String origin=null
+                receiver: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+            p0: CONST String type=kotlin.String value="tasks"
+        CALL 'public final fun checkNotNullExpressionValue (value: kotlin.Any?, expression: kotlin.String): kotlin.Unit declared in kotlin.jvm.internal.Intrinsics' type=kotlin.Unit origin=null
+          value: GET_VAR 'val tmp0: kotlin.Any? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.Any? origin=null
+          expression: CONST String type=kotlin.String value="child(...)"
+        GET_VAR 'val tmp0: kotlin.Any? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.Any? origin=null
+    COMPOSITE type=kotlin.Unit origin=null
+      VAR name:status type:kotlin.jvm.internal.Ref.BooleanRef [val]
+        CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.jvm.internal.Ref.BooleanRef' type=kotlin.jvm.internal.Ref.BooleanRef origin=null
+      SET_FIELD 'FIELD IR_BUILTINS_STUB name:element type:kotlin.Boolean visibility:public declared in kotlin.jvm.internal.Ref.BooleanRef' type=kotlin.Unit origin=null
+        receiver: GET_VAR 'val status: kotlin.jvm.internal.Ref.BooleanRef [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.jvm.internal.Ref.BooleanRef origin=null
+        value: CONST Boolean type=kotlin.Boolean value=true
+    COMPOSITE type=kotlin.Unit origin=null
+      CALL 'public abstract fun addOnSuccessListener (p0: @[EnhancedNullability] com.google.android.gms.tasks.OnSuccessListener<in @[FlexibleNullability] TResult of com.google.android.gms.tasks.Task?>): @[EnhancedNullability] com.google.android.gms.tasks.Task<@[FlexibleNullability] TResult of com.google.android.gms.tasks.Task?> declared in com.google.android.gms.tasks.Task' type=@[EnhancedNullability] com.google.android.gms.tasks.Task<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?> origin=null
+        $this: CALL 'public open fun get (): @[EnhancedNullability] com.google.android.gms.tasks.Task<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?> [fake_override] declared in com.google.firebase.database.DatabaseReference' type=@[EnhancedNullability] com.google.android.gms.tasks.Task<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?> origin=null
+          $this: GET_VAR 'val myRef: com.google.firebase.database.DatabaseReference [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.google.firebase.database.DatabaseReference origin=null
+        p0: BLOCK type=com.google.android.gms.tasks.OnSuccessListener<kotlin.Any?> origin=LAMBDA
+          VAR IR_TEMPORARY_VARIABLE name:tmp0 type:kotlin.Function1<kotlin.Any?, kotlin.Unit> [val]
+            TYPE_OP type=kotlin.Function1<kotlin.Any?, kotlin.Unit> origin=IMPLICIT_CAST typeOperand=kotlin.Function1<kotlin.Any?, kotlin.Unit>
+              BLOCK type=kotlin.Function1<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?, kotlin.Unit> origin=LAMBDA
+                COMPOSITE type=kotlin.Unit origin=null
+                CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=kotlin.Function1<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?, kotlin.Unit> origin=null
+                  <T>: kotlin.Function1<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?, kotlin.Unit>
+                  dynamicCall: CALL 'public final fun invoke (p0: com.anshul.employeeconnect.AddTaskActivity, p1: android.icu.util.Calendar, p2: kotlin.jvm.internal.Ref.BooleanRef, p3: android.icu.util.Calendar?): kotlin.Function1<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?, kotlin.Unit> declared in kotlin.jvm.internal.invokeDynamic' type=kotlin.Function1<@[FlexibleNullability] com.google.firebase.database.DataSnapshot?, kotlin.Unit> origin=null
+                    p0: GET_VAR '<this>: com.anshul.employeeconnect.AddTaskActivity declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=com.anshul.employeeconnect.AddTaskActivity origin=null
+                    p1: GET_VAR 'val timeS: android.icu.util.Calendar [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=android.icu.util.Calendar origin=null
+                    p2: GET_VAR 'val status: kotlin.jvm.internal.Ref.BooleanRef [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.jvm.internal.Ref.BooleanRef origin=null
+                    p3: GET_VAR 'val timeE: android.icu.util.Calendar? [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=android.icu.util.Calendar? origin=null
+                  bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                    tag: CONST Int type=kotlin.Int value=6
+                    owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+                    name: CONST String type=kotlin.String value="metafactory"
+                    descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+                    isInterface: CONST Boolean type=kotlin.Boolean value=false
+                  bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+                    CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                      method: RAW_FUNCTION_REFERENCE 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 [operator] declared in kotlin.Function1' type=kotlin.Any
+                    RAW_FUNCTION_REFERENCE 'private final fun checkNotOverlap$lambda$13 (this$0: com.anshul.employeeconnect.AddTaskActivity, $timeS: android.icu.util.Calendar, $status: kotlin.jvm.internal.Ref.BooleanRef, $timeE: android.icu.util.Calendar?, snapshot: @[FlexibleNullability] com.google.firebase.database.DataSnapshot?): kotlin.Unit? declared in com.anshul.employeeconnect.AddTaskActivity' type=kotlin.Any
+                    CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                      method: RAW_FUNCTION_REFERENCE 'public abstract fun invoke (p1: @[FlexibleNullability] com.google.firebase.database.DataSnapshot?): kotlin.Unit? [fake_override,operator] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+          COMPOSITE type=kotlin.Unit origin=null
+          CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=com.google.android.gms.tasks.OnSuccessListener<kotlin.Any?> origin=null
+            <T>: com.google.android.gms.tasks.OnSuccessListener<kotlin.Any?>
+            dynamicCall: CALL 'public final fun onSuccess (p0: kotlin.Function1<kotlin.Any?, kotlin.Unit>): com.google.android.gms.tasks.OnSuccessListener<kotlin.Any?> declared in kotlin.jvm.internal.invokeDynamic' type=com.google.android.gms.tasks.OnSuccessListener<kotlin.Any?> origin=null
+              p0: GET_VAR 'val tmp0: kotlin.Function1<kotlin.Any?, kotlin.Unit> [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.Function1<kotlin.Any?, kotlin.Unit> origin=null
+            bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              tag: CONST Int type=kotlin.Int value=6
+              owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+              name: CONST String type=kotlin.String value="metafactory"
+              descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+              isInterface: CONST Boolean type=kotlin.Boolean value=false
+            bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+              CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                method: RAW_FUNCTION_REFERENCE 'public abstract fun onSuccess (p0: @[FlexibleNullability] TResult of com.google.android.gms.tasks.OnSuccessListener?): kotlin.Unit declared in com.google.android.gms.tasks.OnSuccessListener' type=kotlin.Any
+              RAW_FUNCTION_REFERENCE 'private final fun checkNotOverlap$lambda$14 ($tmp0: kotlin.Function1<kotlin.Any?, kotlin.Unit>, p0: @[FlexibleNullability] kotlin.Any?): kotlin.Unit declared in com.anshul.employeeconnect.AddTaskActivity' type=kotlin.Any
+              CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                method: RAW_FUNCTION_REFERENCE 'public abstract fun onSuccess (p0: @[FlexibleNullability] kotlin.Any?): kotlin.Unit [fake_override] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+      COMPOSITE type=kotlin.Unit origin=null
+    RETURN type=kotlin.Nothing from='public final fun checkNotOverlap (): kotlin.Boolean declared in com.anshul.employeeconnect.AddTaskActivity'
+      GET_FIELD 'FIELD IR_BUILTINS_STUB name:element type:kotlin.Boolean visibility:public declared in kotlin.jvm.internal.Ref.BooleanRef' type=kotlin.Boolean origin=null
+        receiver: GET_VAR 'val status: kotlin.jvm.internal.Ref.BooleanRef [val] declared in com.anshul.employeeconnect.AddTaskActivity.checkNotOverlap' type=kotlin.jvm.internal.Ref.BooleanRef origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:48)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:41)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:407)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:424)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:169)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:39)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseFactoriesKt.createFilePhase$lambda$4(PhaseFactories.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:69)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:52)
+	... 46 more
+Caused by: java.lang.IllegalStateException: Fake override should have at least one overridden descriptor: FUN FAKE_OVERRIDE name:before visibility:public modality:OPEN <> ($this:kotlin.Nothing, p0:@[FlexibleNullability] kotlin.Any?) returnType:kotlin.Boolean [fake_override]
+	at org.jetbrains.kotlin.backend.jvm.ir.JvmIrUtilsKt.findSuperDeclaration(JvmIrUtils.kt:404)
+	at org.jetbrains.kotlin.backend.jvm.mapping.MethodSignatureMapper.findSuperDeclaration(MethodSignatureMapper.kt:439)
+	at org.jetbrains.kotlin.backend.jvm.mapping.MethodSignatureMapper.mapToCallableMethod(MethodSignatureMapper.kt:408)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:550)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:1047)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.expressions.IrWhen.accept(IrWhen.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:524)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:538)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitBlock(IrElementVisitor.kt:126)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:409)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.expressions.IrBlock.accept(IrBlock.kt:18)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:1050)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.expressions.IrWhen.accept(IrWhen.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:524)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:529)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:134)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:236)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:124)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:45)
+	... 56 more
+
+

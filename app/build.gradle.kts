@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.firebase.messaging)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,7 +67,7 @@ dependencies {
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:21.3.0")
 
-    // Also add the dependencies for the Credential Manager libraries and specify their versions
+//    // Also add the dependencies for the Credential Manager libraries and specify their versions
     implementation("androidx.credentials:credentials:1.3.0")
     implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
@@ -74,5 +75,13 @@ dependencies {
 
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    implementation("com.google.firebase:firebase-database")
+
+    implementation("com.google.android.gms:play-services-ads:24.3.0")
+
+    implementation("com.google.firebase:firebase-messaging-ktx:24.1.1")
+
+//    implementation("io.agora.rtc:full-sdk:4.0.1")
+//    implementation("io.agora.rtc:voice-sdk:4.0.1")
 
 }

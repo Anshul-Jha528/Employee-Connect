@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/whiteVariant"
+    android:padding="10dp"
+    tools:context=".UpdateProfile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
+        android:layout_margin="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Name*"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inputName"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Contact*"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/contact"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Age"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Gender*"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:paddingHorizontal="20dp"
+            style="@style/ShapeAppearance.Material3.Tooltip"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Male"
+                android:textSize="18sp"
+                android:buttonTint="@color/black"
+                android:buttonTintMode="multiply"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Female"
+                android:textSize="18sp"
+                android:buttonTint="@color/black"
+                android:buttonTintMode="multiply"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif" />
+
+
+        </RadioGroup>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Job Title*"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/job"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Employee \nID"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/empID"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Job Description"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/jobDesc"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center_vertical"
+        android:minHeight="45dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif"
+            android:text="Address*"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@color/white"
+            android:fontFamily="sans-serif"
+            android:hint="@string/input"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:text="SAVE"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-thin"
+        android:backgroundTint="@color/orange"
+        android:backgroundTintMode="multiply"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9376656451768331/9746271693"/>
+
+
+
+</LinearLayout>
+
+

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg1"
+    tools:context=".ActivityCreateTeam">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Team Details "
+        android:textSize="22sp"
+        android:textColor="@color/light_blue"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Team name "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/teamName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/input"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Description "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/teamDesc"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/input"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"
+            android:inputType="text"
+            android:padding="5dp"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/createBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/creatingTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9376656451768331/9746271693"/>
+
+
+    <LinearLayout
+        android:id="@+id/newTeamLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/button_normal"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="My team name :  "
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/newTeamName"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="--"
+                android:textSize="22sp"
+                android:textColor="@color/blue"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="Description :  "
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/newTeamDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="--"
+                android:textSize="22sp"
+                android:textColor="@color/blue"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="Team code :  "
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/newTeamCode"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="--"
+                android:textSize="22sp"
+                android:textColor="@color/purple"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(Share this code with members\n to add them in team) "
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/okBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="22sp"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

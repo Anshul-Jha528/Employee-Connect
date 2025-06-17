@@ -13,13 +13,19 @@
 <!--        <item name="colorOnPrimary">@color/white</item>-->
 <!--        <item name="colorSecondary">@color/light_green</item>-->
 <!--        <item name="colorOnSecondary">@color/white</item>-->
+        <item name="android:windowBackground">@color/appbar</item>
         <item name="android:statusBarColor">@color/bgDark</item>
         <item name="android:navigationBarColor">@color/bgDark</item>
-        <item name="android:windowBackground">@color/bg1</item>
+<!--        <item name="backgroundColor">@color/bg1</item>-->
+        <item name="statusBarBackground">@color/bgDark</item>
 
-        <item name="colorPrimary">@color/light_green</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <item name="colorPrimary">@color/appbar</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/bgLight</item>
         <item name="colorOnSecondary">@color/black</item>
+
     </style>
 </resources>

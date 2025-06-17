@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#B4EFCF"
+    tools:context=".ProfileFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/profile_icon"
+        app:tint="@color/gray" />
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnUpdateProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
+            android:background="@drawable/button_normal"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
+            android:text="Update profile"
+            android:textSize="18sp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
+            android:background="@drawable/button_normal"
+            android:backgroundTint="@color/purple"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="View Information"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/profileEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email ID : "
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-9376656451768331/9746271693"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/profileSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:text="Sign Out"
+        android:background="@drawable/curved_rectangle"
+        android:backgroundTint="@color/darkRed"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:fontFamily="monospace"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/brand_logo_ic_foreground"
+        android:layout_margin="5dp"
+        android:layout_gravity="center" />
+
+
+</LinearLayout>

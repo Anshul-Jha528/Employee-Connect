@@ -68,17 +68,17 @@ class FragmentSignin : Fragment() {
 
         signInBinding.btnSigninwithGoogle.setOnClickListener{
 
-            if(signInBinding.name.text!!.isEmpty()){
-                Toast.makeText(context, "Please write your name", Toast.LENGTH_SHORT).show()
-            }else {
-                name = signInBinding.name.text.toString()
+//            if(signInBinding.name.text!!.isEmpty()){
+//                Toast.makeText(context, "Please write your name", Toast.LENGTH_SHORT).show()
+//            }else {
+//                name = signInBinding.name.text.toString()
 
                 if (Build.VERSION.SDK_INT >= 34) {
                     signInWithGoogle()
                 } else {
                     signInWithTraditionalMethod()
                 }
-            }
+//            }
 
         }
 
@@ -180,8 +180,8 @@ class FragmentSignin : Fragment() {
                     val user = auth.currentUser
                     Toast.makeText(context, "Signed in successfully !", Toast.LENGTH_SHORT).show()
 
-                    email = user?.email.toString()
-                    saveName(name, email)
+//                    email = user?.email.toString()
+//                    saveName(name, email)
 
                     (activity as LoginActivity)?.signInSuccess()
 
