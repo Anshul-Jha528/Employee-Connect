@@ -54,10 +54,7 @@ class TeamChatActivity : AppCompatActivity() {
         teamName = intent.getStringExtra("teamName").toString()
         teamCode = intent.getStringExtra("teamCode").toString()
         supportActionBar?.title = teamName
-
-        val sharedPreferences = getSharedPreferences("my shared preferences", MODE_PRIVATE)
-        senderName = sharedPreferences.getString("userName", "").toString()
-
+        getName()
         reset()
         binding.messageRecycler.layoutManager = LinearLayoutManager(this)
 
@@ -72,6 +69,14 @@ class TeamChatActivity : AppCompatActivity() {
         retrieveMessages()
 
 
+    }
+
+    fun getName(){
+        val database = Firebase.database
+        val myref = database.getReference("users").child(uid)
+        myref.get().addOnSuccessListener {
+            senderName = it.child("name").value.toString()
+        }
     }
 
     fun reset() {
@@ -89,7 +94,7 @@ class TeamChatActivity : AppCompatActivity() {
         val myMessage = Messages(uid, senderName, message , System.currentTimeMillis())
 
         CoroutineScope(Dispatchers.IO).launch {
-            myRef.push().setValue(myMessage).addOnSuccessListener {
+            myRef.push().setValue(myMessage.toMap()).addOnSuccessListener {
                 runOnUiThread {
                     reset()
                     Log.d("success", "Message sent")

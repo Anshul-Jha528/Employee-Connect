@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.anshul.employeeconnect",
+    "sha256_cert_fingerprints": ["B3725CF86E9D6E226FCBD1F982F11C62C43466544DD9779D80F78C1FAD40C4AC"]
+  }
+}]

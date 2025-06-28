@@ -65,8 +65,6 @@ class MyTeamActivity : AppCompatActivity() {
         }
         supportActionBar?.title = "My Team"
         teamId = intent.getStringExtra("teamId")!!
-        teamName = intent.getStringExtra("teamName")!!
-        teamDesc = intent.getStringExtra("teamDesc")!!
         teamCode = intent.getStringExtra("teamCode")!!
         myTeamBinding.requestTextView.isVisible = false
         setDetails()
@@ -131,15 +129,17 @@ class MyTeamActivity : AppCompatActivity() {
 
     }
 
-
-
-
-
-
     fun setDetails(){
-        myTeamBinding.teamName.text = teamName
-        myTeamBinding.teamDesc.text = teamDesc
-        myTeamBinding.teamCode.text = teamCode
+
+        database.getReference("teams").child(teamId).get().addOnSuccessListener { snapshot ->
+            val team = snapshot.getValue(Teams::class.java)
+            teamName = team!!.name
+            teamDesc = team.desc
+            myTeamBinding.teamName.text = teamName
+            myTeamBinding.teamDesc.text = teamDesc
+            myTeamBinding.teamCode.text = teamCode
+        }
+
 
     }
 
@@ -234,9 +234,9 @@ class MyTeamActivity : AppCompatActivity() {
         val userRef = database.getReference("users")
         userRef.child(uid).get().addOnSuccessListener { snapshot ->
 
-            if(snapshot.child("team1").value != null) {
-                userRef.child(uid).child("team1").push().setValue(teamId)
-                myRef.child(teamId).child("members").push().setValue(uid)
+//            if(snapshot.child("team1").value == null) {
+                userRef.child(uid).child("myTeams").child(teamId).setValue(teamId)
+                myRef.child(teamId).child("members").child(uid).setValue(uid)
                 myRef.child(teamId).child("requests").child(uid).removeValue()
                     .addOnSuccessListener {
                         Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show()
@@ -252,29 +252,29 @@ class MyTeamActivity : AppCompatActivity() {
                     }
                     getTeamDetails()
                 }
-            }else if(snapshot.child("team2").value != null){
-                userRef.child(uid).child("team2").push().setValue(teamId)
-                myRef.child(teamId).child("members").push().setValue(uid)
-                myRef.child(teamId).child("requests").child(uid).removeValue()
-                    .addOnSuccessListener {
-                        Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show()
-                        getTeamDetails()
-                    }
-
-
-                myRef.child(teamId).get().addOnSuccessListener { snapshot ->
-                    if (snapshot.exists()) {
-                        var mem = snapshot.child("noOfMembers").value.toString().toInt()
-                        mem = mem + 1
-                        myRef.child(teamId).child("noOfMembers").setValue(mem)
-                    }
-                    getTeamDetails()
-                }
-            }else{
-                myRef.child(teamId).child("requests").child(uid).removeValue()
-                getTeamDetails()
-                Toast.makeText(applicationContext, "User has already joined 2 teams, cannot add.", Toast.LENGTH_SHORT).show()
-            }
+//            }else if(snapshot.child("team2").value == null){
+//                userRef.child(uid).child("team2").setValue(teamId)
+//                myRef.child(teamId).child("members").push().setValue(uid)
+//                myRef.child(teamId).child("requests").child(uid).removeValue()
+//                    .addOnSuccessListener {
+//                        Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show()
+//                        getTeamDetails()
+//                    }
+//
+//
+//                myRef.child(teamId).get().addOnSuccessListener { snapshot ->
+//                    if (snapshot.exists()) {
+//                        var mem = snapshot.child("noOfMembers").value.toString().toInt()
+//                        mem = mem + 1
+//                        myRef.child(teamId).child("noOfMembers").setValue(mem)
+//                    }
+//                    getTeamDetails()
+//                }
+////            }else{
+//                myRef.child(teamId).child("requests").child(uid).removeValue()
+//                getTeamDetails()
+//                Toast.makeText(applicationContext, "User has already joined 2 teams, cannot add.", Toast.LENGTH_SHORT).show()
+////            }
         }
 
     }
@@ -311,14 +311,14 @@ class MyTeamActivity : AppCompatActivity() {
             .setMessage("Are you sure you want to remove this member from your team.")
             .setPositiveButton("Remove", DialogInterface.OnClickListener { dialogInterface, l ->
                 val userRef = database.getReference("users")
-                userRef.child(uid).child("teams").child(teamId).removeValue()
+                userRef.child(uid).child("myTeams").child(teamId).removeValue()
                 myRef.child(teamId).child("members").child(uid).removeValue().addOnSuccessListener {
                     Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show()
                     myRef.child(teamId).get().addOnSuccessListener { snapshot ->
                         if(snapshot.exists()){
                             var mem = snapshot.child("noOfMembers").value.toString().toInt()
                             mem = mem - 1
-                            myRef.child("noOfMembers").setValue(mem)
+                            myRef.child(teamId).child("noOfMembers").setValue(mem)
                         }
                     }
                     getTeamDetails()
@@ -347,6 +347,10 @@ class MyTeamActivity : AppCompatActivity() {
                 finish()
             }
 
+            R.id.refresh ->{
+                getTeamDetails()
+            }
+
             R.id.delete ->{
                 if(auth.currentUser?.uid?.toString()==admin){
                     deleteTeam()
@@ -365,6 +369,13 @@ class MyTeamActivity : AppCompatActivity() {
                         .setMessage("Do you want to leave this team? You will have to request again to join back.")
                         .setPositiveButton ("Leave", DialogInterface.OnClickListener{dialogInterface, l ->
                             removeMember2(auth.currentUser?.uid?.toString()!!, teamId )
+                            myRef.child(teamId).get().addOnSuccessListener { snapshot ->
+                                if(snapshot.exists()){
+                                    var mem = snapshot.child("noOfMembers").value.toString().toInt()
+                                    mem = mem - 1
+                                    myRef.child(teamId).child("noOfMembers").setValue(mem)
+                                }
+                            }
                             Toast.makeText(
                                 applicationContext,
                                 "Left the team",
@@ -418,16 +429,8 @@ class MyTeamActivity : AppCompatActivity() {
 
     fun removeMember2(id : String, teamId : String){
         val ref = database.getReference("users").child(id)
-        ref.get().addOnSuccessListener { snapshot ->
-            if(snapshot.exists()){
-                if(snapshot.child("team1").value==teamId){
-                    ref.child("team1").removeValue()
-                }
-                if(snapshot.child("team2").value==teamId){
-                    ref.child("team2").removeValue()
-                }
-            }
-        }
+        ref.child("myTeams").child(teamId).removeValue()
+        database.getReference("teams").child(teamId).child("members").child(id).removeValue()
     }
 
 

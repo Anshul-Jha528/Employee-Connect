@@ -1,0 +1,18 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.anshul.employeeconnect",
+    "sha256_cert_fingerprints": ["B3725CF86E9D6E226FCBD1F982F11C62C43466544DD9779D80F78C1FAD40C4AC"]
+  }
+},
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.anshul.employeeconnect",
+      "sha256_cert_fingerprints":
+        ["10:CF:1C:0B:CF:B0:2F:0C:E5:7C:69:1A:E8:F6:32:4F:8F:2F:27:D9:05:69:7D:48:85:10:2E:00:11:CD:63:23"]
+    }
+  }
+]

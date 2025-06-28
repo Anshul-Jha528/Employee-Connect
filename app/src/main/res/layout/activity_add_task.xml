@@ -40,7 +40,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="5dp"
             android:background="@color/white"/>
 
@@ -69,7 +69,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="5dp"
             android:background="@color/white"/>
 
@@ -97,7 +97,7 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:fontFamily="sans-serif"
-            android:inputType="text"
+            android:inputType="text|textCapSentences"
             android:padding="5dp"
             android:background="@color/white"/>
 

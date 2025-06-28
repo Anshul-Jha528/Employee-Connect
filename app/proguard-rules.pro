@@ -20,5 +20,12 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class io.agora.** { *; }
--dontwarn io.agora.**
+-keep class com.anshul.employeeconnect.Teams { *; }
+-keepclassmembers class com.anshul.employeeconnect.Teams { *; }
+-keep class com.anshul.employeeconnect.Messages { *; }
+-keepclassmembers class com.anshul.employeeconnect.Messages { *; }
+-keep class com.anshul.employeeconnect.Users { *; }
+-keepclassmembers class com.anshul.employeeconnect.Users { *; }
+-keep class com.anshul.employeeconnect.UserTasks { *; }
+-keepclassmembers class com.anshul.employeeconnect.UserTasks { *; }
+

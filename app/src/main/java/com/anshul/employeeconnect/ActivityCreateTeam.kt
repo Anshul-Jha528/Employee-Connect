@@ -79,18 +79,13 @@ class ActivityCreateTeam : AppCompatActivity() {
 
             val team = Teams(teamName, teamDesc, code, uid.toString(), 1, hashMapOf(), hashMapOf())
 
-            myRef.child(code).setValue(team).addOnCompleteListener { task ->
+            myRef.child(code).setValue(team.toMap()).addOnCompleteListener { task ->
                 if(task.isSuccessful){
 
-                    myRef2.child(uid.toString()).get().addOnSuccessListener { snapshot ->
-                        if(snapshot.exists()){
-                            if(snapshot.child("team1").value == null){
-                                myRef2.child(uid.toString()).child("team1").setValue(code)
-                            }else if(snapshot.child("team2").value == null){
-                                myRef2.child(uid.toString()).child("team2").setValue(code)
-                            }
+                    myRef2.child(uid.toString()).child("myTeams").child(code).setValue(code).addOnSuccessListener { snapshot ->
+
                             teamCreated(code)
-                        }
+
                     }
 
 //                    if(myRef2.child(uid.toString()).child("team1").get() == null){

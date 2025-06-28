@@ -1,7 +1,9 @@
 package com.anshul.employeeconnect
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +16,11 @@ import com.anshul.employeeconnect.databinding.FragmentHomeBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.android.gms.ads.rewarded.RewardedAd
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -27,6 +32,9 @@ class HomeFragment : Fragment() {
 
     lateinit var homeBinding: FragmentHomeBinding
     var adapter : TeamsAdapter? = null
+    var rewardedAd : RewardedAd? = null
+    var rewardAdId = "ca-app-pub-9376656451768331/1217381690"
+    var maxTeams = 10
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +48,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setLimit()
         homeBinding.progressBar.isVisible = true
         setUpAdapter()
 
@@ -49,62 +58,33 @@ class HomeFragment : Fragment() {
         }
 
         homeBinding.joinTeam.setOnClickListener {
-            val joinTeam = FragmentJoinTeam()
-            joinTeam.isCancelable = true
-            joinTeam.show(parentFragmentManager, "joinTeam")
+            joinTeam()
+        }
+
+        MobileAds.initialize(requireActivity()){
+            loadReward()
         }
 
         val adRequest = AdRequest.Builder().build()
         homeBinding.adView.loadAd(adRequest)
+
+
+    }
+
+    fun setLimit(){
+        val database = Firebase.database
+        database.getReference("users").child("maxTeams").get().addOnSuccessListener {
+            if(it.exists()){
+                maxTeams = it.value.toString().toInt()
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        setRecyclerView()
+        setUpAdapter()
     }
 
-    fun setRecyclerView(){
-        val database = Firebase.database
-        val auth = FirebaseAuth.getInstance()
-        val uid = auth.currentUser?.uid.toString()
-        val myRef = database.getReference("users").child(uid)
-        val myRef2 = database.getReference("teams")
-        myRef.get().addOnCompleteListener { task ->
-            if(task.isSuccessful){
-                val teams = ArrayList<Teams>()
-                val snapshot = task.result
-                var t1 : String? = null
-                var t2 : String? = null
-                if(snapshot.child("team1").exists()){
-                    t1 = (snapshot.child("team1").value.toString())
-
-                }
-                if(snapshot.child("team2").exists()){
-                    t2 = (snapshot.child("team2").value.toString())
-                }
-                if(t1 != null || t2 != null){
-                    myRef2.get().addOnCompleteListener { task2 ->
-                        if(task2.isSuccessful){
-                            val snapshot2 = task2.result
-                            if(t1 != null){
-                                teams.add(snapshot2.child(t1).getValue(Teams::class.java)!!)
-                            }
-                            if(t2 != null){
-                                teams.add(snapshot2.child(t2).getValue(Teams::class.java)!!)
-                            }
-                            homeBinding.progressBar.isVisible = false
-                            adapter = TeamsAdapter(requireContext(), teams)
-                            adapter!!.notifyDataSetChanged()
-                            homeBinding.recyclerViewTeams.adapter = adapter
-                        }
-                    }
-                }else{
-                    homeBinding.progressBar.isVisible = false
-                }
-            }
-        }
-
-    }
 
     private var interstitialAd: InterstitialAd? = null
 
@@ -130,12 +110,12 @@ class HomeFragment : Fragment() {
     }
 
     fun intentCreate(){
-        showInterstitialAd()
+//        showInterstitialAd()
         startActivity(Intent(requireContext(), ActivityCreateTeam::class.java))
     }
 
     fun intentJoin(){
-        showInterstitialAd()
+//        showInterstitialAd()
         val joinTeam = FragmentJoinTeam()
         joinTeam.isCancelable = true
         joinTeam.show(parentFragmentManager, "joinTeam")
@@ -151,19 +131,82 @@ class HomeFragment : Fragment() {
             myRef.get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     val snapshot = it.result
-                    if (!snapshot.child("team1").exists()) {
-                        intentCreate()
-                    } else if (!snapshot.child("team2").exists()) {
-                        intentCreate()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "You cannot have more than 2 teams",
-                            Toast.LENGTH_SHORT
-                        ).show()
+//                    if (!snapshot.child("team1").exists()) {
+//                        intentCreate()
+//                    } else if (!snapshot.child("team2").exists()) {
+//                        intentCreate()
+//                    } else {
+//                        Toast.makeText(
+//                            requireContext(),
+//                            "You cannot have more than 2 teams",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+                    var count =0
+                    for(i in snapshot.child("myTeams").children){
+                        count++
                     }
+                    Log.d("count", "TeamCount" + count)
+                    if(count <=2){
+                        intentCreate()
+                    }else{
+                        val dialog = AlertDialog.Builder(requireContext())
+                            .setTitle("Limit reached !")
+                            .setMessage("Your team joining / creating limit is reached. To add more teams, watch an ad. ")
+                            .setPositiveButton ("Watch Ad") { interfaced, l ->
+                                showRewardAd(1)
+                            }
+                            .setNegativeButton("Cancel") { interfaced, l ->
+                                interfaced.dismiss()
+                            }
+                            .create()
+                        dialog.show()
+                    }
+
                 }
             }
+        }
+    }
+
+    fun loadReward(){
+        val adRequest = AdRequest.Builder().build()
+        RewardedAd.load(requireActivity(), rewardAdId, adRequest, object : RewardedAdLoadCallback() {
+
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    rewardedAd = null
+                    Log.d("error", "Ad failed to load: ${adError.message}")
+                }
+
+                override fun onAdLoaded(ad: RewardedAd) {
+                    rewardedAd = ad
+                    Log.d("success","Ad ready to show!")
+                }
+
+        })
+
+    }
+
+    fun showRewardAd(case : Int){
+        if (rewardedAd != null) {
+            rewardedAd?.let{ad ->
+                ad.show(requireActivity()) { reward ->
+
+                    if(case == 1){
+                        intentCreate()
+                    }else{
+                        intentJoin()
+                    }
+
+                    loadReward()
+
+                }
+            }
+        }else{
+            loadReward()
+            Toast.makeText(requireActivity(),
+                "Ad could not be loaded. Please try again later.",
+                Toast.LENGTH_SHORT).show()
+            Log.d("error","The rewarded ad wasn't ready yet.")
         }
     }
 
@@ -177,17 +220,40 @@ class HomeFragment : Fragment() {
             myRef.get().addOnCompleteListener {
                 if (it.isSuccessful) {
                     val snapshot = it.result
-                    if (!snapshot.child("team1").exists()) {
-                        intentJoin()
-                    } else if (snapshot.child("team2").exists()) {
-                        intentJoin()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "You cannot have more than 2 teams",
-                            Toast.LENGTH_SHORT
-                        ).show()
+//                    if (!snapshot.child("team1").exists()) {
+//                        intentJoin()
+//                    } else if (snapshot.child("team2").exists()) {
+//                        intentJoin()
+//                    } else {
+//                        Toast.makeText(
+//                            requireContext(),
+//                            "You cannot have more than 2 teams",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+                    var count =0
+                    for(i in snapshot.child("myTeams").children){
+                        count++
                     }
+                    Log.d("count", "TeamCount" + count)
+                    if(count <=2){
+                        intentJoin()
+                    }else{
+                        val dialog = AlertDialog.Builder(requireContext())
+                            .setTitle("Limit reached !")
+                            .setMessage("Your team joining / creating limit is reached. To add more teams, watch an ad. ")
+                            .setPositiveButton ("Watch Ad") { interfaced, l ->
+                                showRewardAd(2)
+                            }
+                            .setNegativeButton("Cancel") { interfaced, l ->
+                                interfaced.dismiss()
+                            }
+                            .create()
+
+                        dialog.show()
+
+                    }
+
                 }
             }
         }
@@ -197,41 +263,43 @@ class HomeFragment : Fragment() {
         val database = Firebase.database
         val auth = FirebaseAuth.getInstance()
         val uid = auth.currentUser?.uid.toString()
-        val myRef = database.getReference("users").child(uid)
-        var team1 : String? = null
-        var team2 : String? = null
+        val myRef = database.getReference("users").child(uid).child("myTeams")
+        var teamList = ArrayList<String>()
 
-        myRef.get().addOnCompleteListener {
-            if (it.isSuccessful) {
-                val snapshot = it.result
-                if (snapshot.child("team1").exists()) {
-                    team1 = snapshot.child("team1").value.toString()
-                }
-                if (snapshot.child("team2").exists()) {
-                    team2 = snapshot.child("team2").value.toString()
-                }
-                if(team1 != null || team2 != null){
-                    val myRef2 = database.getReference("teams")
-                    val teams = ArrayList<Teams>()
-                    myRef2.get().addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val snapshot = it.result
-                            if(team1 != null){
-                                val team = snapshot.child(team1).getValue(Teams::class.java)!!
-                                teams.add(team!!)
-                            }
-                            if(team2 != null){
-                                val team = snapshot!!.child(team2).getValue(Teams::class.java)!!
-                                teams.add(team)
-                            }
-                            homeBinding.recyclerViewTeams.layoutManager = LinearLayoutManager(requireContext())
-                            val adapter = TeamsAdapter(requireContext(), teams)
-                            adapter.notifyDataSetChanged()
-                            homeBinding.recyclerViewTeams.adapter = adapter
-                        }
-                    }
+        myRef.get().addOnSuccessListener {
+            if (it.exists()) {
+                val snapshot = it
 
+                for(i in snapshot.children){
+                    teamList.add(i.value.toString())
                 }
+
+                if(teamList.size>=5){
+                    homeBinding.adView2.isVisible = true
+                }else{
+                    homeBinding.adView2.isVisible = false
+                }
+
+                if(teamList.size >= maxTeams){
+                    homeBinding.createTeam.isVisible = false
+                    homeBinding.joinTeam.isVisible = false
+                }
+
+                if(teamList.size == 0){
+                    homeBinding.progressBar.isVisible = false
+                }else{
+                    adapter = TeamsAdapter(requireContext(), teamList)
+                    homeBinding.recyclerViewTeams .layoutManager = LinearLayoutManager(requireContext())
+                    homeBinding.recyclerViewTeams.adapter = adapter
+                    homeBinding.progressBar.isVisible = false
+                    adapter!!.notifyDataSetChanged()
+                    homeBinding.recyclerViewTeams.isVisible = true
+                    homeBinding.progressBar.isVisible = false
+                }
+
+            }else{
+                homeBinding.adView2.isVisible = false
+                homeBinding.progressBar.isVisible = false
             }
         }
     }

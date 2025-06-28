@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.anshul.employeeconnect.databinding.ActivityUpdateProfileBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.firebase.Firebase
@@ -57,6 +58,7 @@ class UpdateProfile : AppCompatActivity() {
 
         Toast.makeText(applicationContext, "Loading...", Toast.LENGTH_LONG).show()
 
+        initialiseAds()
         CoroutineScope(Dispatchers.IO).launch{
             createDb()
             getData()
@@ -165,6 +167,10 @@ class UpdateProfile : AppCompatActivity() {
         }
 
 
+    }
+
+    fun initialiseAds(){
+        MobileAds.initialize(this){}
     }
 
     fun getData() {

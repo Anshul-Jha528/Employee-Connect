@@ -124,7 +124,8 @@ class FragmentSignin : Fragment() {
     fun signInWithGoogle(){
         val googleOption = GetGoogleIdOption.Builder()
             .setServerClientId(getString(R.string.web_client_id))
-            .setFilterByAuthorizedAccounts(true)
+            .setFilterByAuthorizedAccounts(false)
+            .setAutoSelectEnabled(false)
             .build()
 
 

@@ -9,4 +9,8 @@
         android:id="@+id/leave"
         android:icon="@drawable/exit"
         android:title="Leave" />
+    <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/reload"
+        android:title="Refresh" />
 </menu>

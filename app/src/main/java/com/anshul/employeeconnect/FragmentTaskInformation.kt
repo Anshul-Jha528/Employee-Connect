@@ -44,6 +44,11 @@ class FragmentTaskInformation : DialogFragment() {
         }
 
         binding.btnOk.setOnClickListener {
+            if(binding.statusToggle.isChecked){
+                Toast.makeText(requireContext(),
+                    "Task will be automatically deleted.",
+                    Toast.LENGTH_SHORT).show()
+            }
             dismiss()
         }
 

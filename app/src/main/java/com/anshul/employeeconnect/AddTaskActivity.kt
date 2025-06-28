@@ -268,7 +268,7 @@ class AddTaskActivity : AppCompatActivity() {
         val taskId = myRef.push().key.toString()
         val userTask = UserTasks(taskId, name, desc, location, date, startTime.seconds.toLong(), endTime?.seconds?.toLong(), false, admin)
         val myId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        myRef.child(taskId).setValue(userTask)
+        myRef.child(taskId).setValue(userTask.toMap())
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     Toast.makeText(applicationContext, "Task added", Toast.LENGTH_SHORT).show()

@@ -132,11 +132,12 @@ class FragmentViewInfo : DialogFragment() {
             val gender = it.child("gender").value.toString()
             val job = it.child("job").value.toString()
             val jobDesc = it.child("jobDesc").value.toString()
+            val empId = it.child("empID").value.toString()
             val address = it.child("address").value.toString()
             userNumber = it.child("contact").value.toString()
 
             viewInfoBinding.textInfo.text =
-                "Name : ${name} \nGender : ${gender} \nJob Title : ${job} \nJob Description : ${jobDesc} \nAddress : ${address}"
+                "Name : ${name} \nGender : ${gender} \nJob Title : ${job} \nJob Description : ${jobDesc} \nEmployee ID : ${empId} \nAddress : ${address}"
         }
     }
 

@@ -13,6 +13,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/whiteVariant">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginVertical="5dp"
         android:layout_margin="5dp"
@@ -38,6 +43,7 @@
             android:background="@color/white"
             android:fontFamily="sans-serif"
             android:hint="@string/input"
+            android:inputType="textCapSentences"
             android:singleLine="true"
             android:textColor="@color/black"
             android:textSize="22sp" />
@@ -196,6 +202,7 @@
             android:background="@color/white"
             android:fontFamily="sans-serif"
             android:hint="@string/input"
+            android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -228,6 +235,7 @@
             android:background="@color/white"
             android:fontFamily="sans-serif"
             android:hint="@string/input"
+            android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -260,6 +268,7 @@
             android:background="@color/white"
             android:fontFamily="sans-serif"
             android:hint="@string/input"
+            android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -292,6 +301,7 @@
             android:background="@color/white"
             android:fontFamily="sans-serif"
             android:hint="@string/input"
+            android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -320,6 +330,7 @@
         ads:adUnitId="ca-app-pub-9376656451768331/9746271693"/>
 
 
+    </LinearLayout>
 
 </LinearLayout>
 

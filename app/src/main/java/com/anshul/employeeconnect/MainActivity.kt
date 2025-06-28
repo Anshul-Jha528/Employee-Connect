@@ -5,12 +5,15 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager.widget.ViewPager
@@ -25,6 +28,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.jar.Manifest
 
 
 class MainActivity : AppCompatActivity() {
@@ -109,8 +113,23 @@ class MainActivity : AppCompatActivity() {
                 OnInitializationCompleteListener { initializationStatus: InitializationStatus? -> })
         }
 
+        initialiseAds()
+        getNotificationPermissions()
 
     }
+
+    fun initialiseAds(){
+        MobileAds.initialize(this){}
+    }
+
+    fun getNotificationPermissions(){
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU){
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
+    }
+
 
     fun signOut(){
         auth.signOut()

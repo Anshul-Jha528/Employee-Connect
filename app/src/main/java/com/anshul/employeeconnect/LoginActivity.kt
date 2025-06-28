@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.anshul.employeeconnect.databinding.ActivityLoginBinding
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
@@ -40,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        initializeAds()
 //        FirebaseApp.initializeApp(this)
         val mauth = FirebaseAuth.getInstance()
         if(mauth.currentUser != null){
@@ -53,6 +55,11 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    fun initializeAds(){
+        MobileAds.initialize(this) {}
+
     }
 
 }

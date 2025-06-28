@@ -37,9 +37,9 @@
             android:name=".TeamChatActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan"/>
-        <activity
-            android:name=".ActivityMeetings"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ActivityMeetings"-->
+<!--            android:exported="false" />-->
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

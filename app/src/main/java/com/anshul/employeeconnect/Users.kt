@@ -12,6 +12,8 @@ data class Users(
     val address: String = ""
 ) {
 
+    constructor() : this("", "", "", -1, "", "", "", "", "")
+
     fun toMap(): Map<String, Any?> {
         return mapOf(
             "name" to name,

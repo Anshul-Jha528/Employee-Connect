@@ -48,8 +48,16 @@ class MyTasksAdapter(
 
 
         if(userTasks[position].status == false && FirebaseAuth.getInstance().currentUser?.uid.toString()==fragment.uid) {
-            fragment.scheduleNotification(fragment.requireContext(), userTasks[position].taskStartTime*1000, userTasks[position].taskId)
+
             val time = System.currentTimeMillis()
+
+            if(time < userTasks[position].taskStartTime*1000) {
+                fragment.scheduleNotification(
+                    fragment.requireContext(),
+                    userTasks[position].taskStartTime * 1000,
+                    userTasks[position].taskId
+                )
+            }
 
             if (userTasks[position].taskEndTime != null) {
 

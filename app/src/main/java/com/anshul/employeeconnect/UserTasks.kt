@@ -13,6 +13,21 @@ data class UserTasks(
     val status : Boolean = false,
     val admin : String
 ) {
-     ;constructor() : this("", "", "", "", "", 0, null, false, "")
+     ;constructor() : this("", "", "", "", "", 0L, null, false, "")
+
+    fun toMap() : Map<String, Any?> {
+        return mapOf(
+            "taskId" to taskId,
+            "taskTitle" to taskTitle,
+            "taskDesc" to taskDesc,
+            "taskLocation" to taskLocation,
+            "taskDate" to taskDate,
+            "taskStartTime" to taskStartTime,
+            "taskEndTime" to taskEndTime,
+            "status" to status,
+            "admin" to admin
+        )
+    }
+
 
 }

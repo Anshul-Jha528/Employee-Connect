@@ -21,7 +21,7 @@
         <!--        <item name="android:background">@color/bg1</item>-->
         <item name="android:windowSplashScreenBackground">@color/appbar</item>
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
-        <item name="android:windowSplashScreenBrandingImage">@mipmap/brand_logo_ic</item>
+        <item name="android:windowSplashScreenBrandingImage">@mipmap/brand_logo_ic_foreground</item>
 
 
     </style>
