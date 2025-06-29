@@ -1,11 +1,13 @@
 package com.anshul.employeeconnect
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.media.audiofx.BassBoost.Settings
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
@@ -128,7 +130,19 @@ class MainActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
             }
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (!alarmManager.canScheduleExactAlarms()) {
+                // Launch special settings activity for exact alarm permission
+                val intent = Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
+                startActivity(intent)
+            }
+        }
+
     }
+
+
 
 
     fun signOut(){

@@ -76,7 +76,7 @@ class FragmentTaskInformation : DialogFragment() {
                 var admin = data.admin
 
                 if(admin == uid){
-                    admin = "You"
+                    admin = "Self"
                 }else{
                     database.getReference("teams").child(admin).get().addOnSuccessListener {
                         if(it.exists()){
